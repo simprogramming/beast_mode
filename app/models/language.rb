@@ -1,3 +1,3 @@
 class Language < ApplicationRecord
   has_many :courses
-end
+  belongs_to :user, through: :learning_languages
