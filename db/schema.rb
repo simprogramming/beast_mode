@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_215016) do
     t.string "name"
     t.string "link"
     t.bigint "language_id", null: false
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["language_id"], name: "index_courses_on_language_id"
