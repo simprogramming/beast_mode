@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+.home {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 283px;
+
+  & h1 {
+    font-size: 70px;
+    font-weight: bolder;
+    
+  }
+  & a {
+    padding-top: 100px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+  }
+}
