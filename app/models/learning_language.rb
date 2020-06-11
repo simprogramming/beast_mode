@@ -1,4 +1,4 @@
 class LearningLanguage < ApplicationRecord
-  belongs_to :language_id
-  belongs_to :user_id
+  belongs_to :language
+  belongs_to :user
 end
