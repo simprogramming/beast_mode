@@ -2,3 +2,10 @@ h1 {
   font-size: 50px;
   font-weight: bolder;
 }
+
+.versus-word {
+  & p {
+    padding-top: 70px;
+    font-size: 20px;
+  }
+}
