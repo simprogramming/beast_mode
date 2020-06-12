@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   def home
   end
 
-  def start
-    @users = User.all
+  def versus
+    @other_user = User.all.reject { |user| user == current_user }
+    @languages = Language.all
   end
 end
