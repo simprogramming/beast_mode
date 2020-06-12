@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 
   def versus
     @other_user = User.all.reject { |user| user == current_user }
-    @languages = Language.all
+    @languages = current_user.languages
   end
 end

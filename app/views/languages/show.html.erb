@@ -1,0 +1,25 @@
+<div class="container language-show">
+  <h1><%= @language.name.downcase %></h1>
+  <h2>ready to level up your coding game?</h2>
+  <h3>here are the courses to take for <%= @language.name.downcase %>:</h3>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>status</th>
+    </tr>
+    
+    <% @courses.each_with_index do |course, index| %>
+      <tr>
+      <td><strong><%= index + 1 %></strong</td>
+      <td><%= link_to course.name, course.link %></td>
+      <% if course.completed %>
+        <td><%= image_tag "https://image.flaticon.com/icons/svg/463/463574.svg" %></td>
+      <% else %>
+        <td><%= image_tag 'https://image.flaticon.com/icons/svg/463/463612.svg' %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
