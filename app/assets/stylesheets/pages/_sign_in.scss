@@ -1,0 +1,30 @@
+.sign-in {
+  background-color: white;
+  color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+
+
+  & h1 {
+    font-size: 70px;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  & h3 {
+    text-align: center;
+  }
+}
+
+.form-to-sign-in {
+  width: 30%;
+}
+
+.rounded-btn {
+  text-align: center;
+  border-radius: 5px;
+  color: white!important;
+}
