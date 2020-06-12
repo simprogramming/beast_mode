@@ -1,4 +1,7 @@
 puts "Cleaning database..."
+TakingCourse.destroy_all
+LearningLanguage.destroy_all
+Course.destroy_all
 Language.destroy_all
 User.destroy_all
 
