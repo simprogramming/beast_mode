@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
 
 
-  
+
   has_many :learning_languages
-  has_many :languages, through: :learning_languages
+  # has_many :languages, through: :learning_languages
   has_many :taking_courses
-  has_many :courses, through: :taking_courses
+  # has_many :courses, through: :taking_courses
 
   validates :username, presence: true
 
