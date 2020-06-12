@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
   end
 
-  def start
+  def versus
     @users = User.all
   end
 end
