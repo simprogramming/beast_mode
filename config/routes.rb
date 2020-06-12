@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'languages/index'
-  get 'languages/new'
-  get 'languages/edit'
-  get 'languages/update'
+  resources :languages, only: [:index, :new, :create, :edit, :update]
   resources :courses, only: [ :new, :create, :edit, :update ]
   devise_for :users
   root to: 'pages#home'
