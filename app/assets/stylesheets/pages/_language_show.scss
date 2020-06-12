@@ -2,11 +2,14 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
   justify-content: center;
   margin-top: 62px;
+  width: 450px;
 }
 
 td {

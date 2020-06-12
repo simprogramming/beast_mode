@@ -8,6 +8,7 @@
       <th></th>
       <th>name</th>
       <th>status</th>
+      <th>update</th>
     </tr>
     
     <% @courses.each_with_index do |course, index| %>
@@ -18,6 +19,7 @@
         <td><%= image_tag "https://image.flaticon.com/icons/svg/463/463574.svg" %></td>
       <% else %>
         <td><%= image_tag 'https://image.flaticon.com/icons/svg/463/463612.svg' %></td>
+        <td><%= link_to 'update', edit_course_path(course) %></td>
       <% end %>
       </tr>
     <% end %>
