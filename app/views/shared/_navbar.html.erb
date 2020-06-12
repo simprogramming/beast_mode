@@ -1,11 +1,10 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">profile</a>
+  <a href="#">languages</a>
   <%= link_to "versus", versus_path %>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
 </div>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+<span style="font-size:30px;cursor:pointer" id="background-color-nav" onclick="openNav()">&#9655;</span>
 
 <script>
 function openNav() {
