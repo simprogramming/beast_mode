@@ -1,10 +1,13 @@
 <div class="curriculum">
   <ul>
     <% @languages.each do |language| %>
-      <% if language.courses.each { |course| course.completed == true }%>
-        <li><span><%= link_to language.name.downcase, language_path(language) %></span></li>
+      <% courses_completed = language.courses.select { |course| course.completed == true } %>
+      <% if courses_completed.length == language.courses.length%>
+        <li><span class="completed-green"><%= link_to language.name.downcase, language_path(language) %></span></li>
+      <% elsif courses_completed.length.between?(1, language.courses.length - 1)%>
+        <li><span class="completed-orange"><%= link_to language.name.downcase, language_path(language) %></span></li>
       <% else  %>
-        <li><span><%= link_to language.name.downcase, language_path(language) %></span></li>
+        <li><span class="not-completed"><%= link_to language.name.downcase, language_path(language) %><span></li>
       <% end %>
     <% end %>
   </ul>
