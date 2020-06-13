@@ -9,6 +9,14 @@
   & li span {
     font-size: 30px;
   }
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+  & a:hover {
+    text-decoration: underline;
+    color: black;
+  }
 }
 
 .player {

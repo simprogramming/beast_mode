@@ -1,7 +1,11 @@
 <div class="curriculum">
   <ul>
     <% @languages.each do |language| %>
-      <li><span><%= link_to language.name.downcase, language_path(language) %></span></li>
+      <% if language.courses.each { |course| course.completed == true }%>
+        <li><span><%= link_to language.name.downcase, language_path(language) %></span></li>
+      <% else  %>
+        <li><span><%= link_to language.name.downcase, language_path(language) %></span></li>
+      <% end %>
     <% end %>
   </ul>
 </div>
