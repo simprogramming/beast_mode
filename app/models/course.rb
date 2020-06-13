@@ -1,4 +1,4 @@
 class Course < ApplicationRecord
   belongs_to :language
-  # belongs_to :user
+  belongs_to :user
 end
