@@ -6,7 +6,10 @@ class LanguagesController < ApplicationController
   end
 
   def show
-    @courses = @language.courses
+    user_courses = TakingCourse.where(user: current_user)
+    @courses = user_courses.select do |taking_course|
+      taking_course.course.language == @language
+    end
   end
 
   def new

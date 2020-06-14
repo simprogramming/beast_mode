@@ -11,15 +11,16 @@
       <th>update</th>
     </tr>
     
-    <% @courses.each_with_index do |course, index| %>
+    <% @courses.each_with_index do |taking_course, index| %>
       <tr>
       <td><strong><%= index + 1 %></strong</td>
-      <td><%= link_to course.name, course.link %></td>
-      <% if course.completed %>
+      <td><%= link_to taking_course.course.name, taking_course.course.link %></td>
+      <% if taking_course.completed %>
         <td><%= image_tag "https://image.flaticon.com/icons/svg/463/463574.svg" %></td>
       <% else %>
         <td><%= image_tag 'https://image.flaticon.com/icons/svg/463/463612.svg' %></td>
-        <td><%= link_to 'update', edit_course_path(course) %></td>
+        <!-- This needs to be fixed as I modified the schema. Will need to link to edit taking_course
+        <td><%= link_to 'update', edit_course_path(taking_course.course) %></td>  -->
       <% end %>
       </tr>
     <% end %>
