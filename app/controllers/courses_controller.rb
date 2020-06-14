@@ -20,7 +20,8 @@ class CoursesController < ApplicationController
   end
 
   def update
-    if @course.update(course_params)
+    # raise
+    if @course.update(params.permit(:course))
       flash.notice = "Course successfully updated!"
       redirect_to languages_path
     else
@@ -30,11 +31,11 @@ class CoursesController < ApplicationController
 
   private
   def find_course
-    @course = Course.find(params[:id])
+    @course = TakingCourse.find_by(course_id: params[:id])
   end
 
   def course_params
-    # params.require(:course).permit(:name, :link, :language_id, :completed)
-    params.require(:course).permit(:completed)
+    params.require(:course).permit(:name, :link, :language_id, :completed)
+    # params.require(:course).permit(:completed)
   end
 end

@@ -18,6 +18,12 @@ react = Language.create!(name: "React")
 node = Language.create!(name: "Node")
 python = Language.create!(name: "Python")
 
+puts "Assigning languages to users"
+Language.all.each do |language|
+  LearningLanguage.create!(user: User.first, language: language)
+  LearningLanguage.create!(user: User.second, language: language)
+end
+
 puts "Creating courses"
 # Ruby
 Course.create!(name: "Codecademy", link: "https://www.codecademy.com/learn/learn-ruby", language: ruby)
@@ -53,12 +59,6 @@ Course.create!(name: "Learn Python", link: "https://www.learnpython.org/", langu
 Course.create!(name: "Harvard", link: "https://online-learning.harvard.edu/course/cs50s-web-programming-python-and-javascript?delta=0", language: python)
 Course.create!(name: "The Great Courses Plus", link: "https://www.thegreatcoursesplus.com/how-to-program-computer-science-concepts-and-python-exercises", language: python)
 Course.create!(name: "Hacker Rank", link: "https://www.hackerrank.com/domains/python", language: python)
-
-puts "Assigning languages to users"
-Language.all.each do |language|
-  LearningLanguage.create!(user: User.first, language: language)
-  LearningLanguage.create!(user: User.second, language: language)
-end
 
 puts "Assigning courses to users"
 Course.all.each do |course|
