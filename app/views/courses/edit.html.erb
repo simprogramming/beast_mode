@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>update the status of a course</h1>
+  <h2>you are now updating <%= link_to @course.name.downcase, @course.link%> for <%= link_to @course.language.name.downcase, language_path(@course.language) %></h2>
+
+  <%= simple_form_for(@course) do |f| %>
+    <%= f.input :completed, label: 'Is this course completed?', as: :radio_buttons, collection: [true, false] %>
+    <%= f.submit %>
+  <% end %>
+</div>
