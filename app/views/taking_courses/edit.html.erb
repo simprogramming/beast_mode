@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for(@taking_course) do |f| %>
+    <%= f.input :completed, label: 'Is this course completed?', as: :radio_buttons, collection: [true, false] %>
+    <%= f.submit %>
+  <% end %>
+</div>

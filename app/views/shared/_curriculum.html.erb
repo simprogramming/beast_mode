@@ -9,7 +9,6 @@
       <li><span class="completed-green"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %></span></li>
     <% elsif courses_completed.length.between?(1, (learning_language.language.courses.length - 1))%>
       <li><span class="completed-orange"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %></span></li>
-      <%# raise %>
     <% else  %>
       <li><span class="not-completed"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %><span></li>
     <% end %>
