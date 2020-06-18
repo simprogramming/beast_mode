@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :languages, only: [:index, :show, :new, :create, :edit, :update]
   resources :courses, only: [ :new, :create, :edit, :update ]
+  resources :taking_courses, only: [:edit, :update]
   devise_for :users
   root to: 'pages#home'
   get '/versus', to: 'pages#versus'

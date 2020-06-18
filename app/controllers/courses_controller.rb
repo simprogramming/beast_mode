@@ -20,7 +20,6 @@ class CoursesController < ApplicationController
   end
 
   def update
-    # raise
     if @course.update(taking_course_params)
       flash.notice = "Course successfully updated!"
       redirect_to languages_path
