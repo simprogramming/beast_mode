@@ -1,0 +1,28 @@
+<div class="container language-show">
+  <h1><%= @language.name.downcase %></h1>
+  <h2>ready to level up your coding game?</h2>
+  <h3>here are the courses to take for <%= @language.name.downcase %>:</h3>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>status</th>
+      <th>update</th>
+    </tr>
+    
+    <% @courses.each_with_index do |taking_course, index| %>
+      <tr>
+      <td><strong><%= index + 1 %></strong</td>
+      <td><%= link_to taking_course.course.name, taking_course.course.link %></td>
+      <% if taking_course.completed %>
+        <td><%= image_tag "https://image.flaticon.com/icons/svg/463/463574.svg" %></td>
+      <% else %>
+        <td><%= image_tag 'https://image.flaticon.com/icons/svg/463/463612.svg' %></td>
+        <!-- This needs to be fixed as I modified the schema. Will need to link to edit taking_course -->
+        <td><%= link_to 'update', edit_taking_course_path(taking_course) %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

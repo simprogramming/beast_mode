@@ -1,8 +1,15 @@
 class LanguagesController < ApplicationController
-  before_action :find_language, only: [:edit, :update]
+  before_action :find_language, only: [:show, :edit, :update]
 
   def index
     @languages = Language.all
+  end
+
+  def show
+    user_courses = TakingCourse.where(user: current_user)
+    @courses = user_courses.select do |taking_course|
+      taking_course.course.language == @language
+    end
   end
 
   def new
