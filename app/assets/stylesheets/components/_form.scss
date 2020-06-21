@@ -1,0 +1,13 @@
+.taking-course-form {
+  & fieldset {
+    font-size: 20px;
+  }
+  & label {
+    color: $gray !important;
+    font-size: 18px;
+  }
+  & button {
+    border-radius: 50%;
+  }
+
+}

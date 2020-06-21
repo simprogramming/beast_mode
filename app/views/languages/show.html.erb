@@ -17,9 +17,9 @@
       <td><%= link_to taking_course.course.name, taking_course.course.link %></td>
       <% if taking_course.completed %>
         <td><%= image_tag "https://image.flaticon.com/icons/svg/463/463574.svg" %></td>
+        <td><%= link_to 'update', edit_taking_course_path(taking_course) %></td>
       <% else %>
         <td><%= image_tag 'https://image.flaticon.com/icons/svg/463/463612.svg' %></td>
-        <!-- This needs to be fixed as I modified the schema. Will need to link to edit taking_course -->
         <td><%= link_to 'update', edit_taking_course_path(taking_course) %></td>
       <% end %>
       </tr>

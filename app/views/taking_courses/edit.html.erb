@@ -1,6 +1,9 @@
-<div class="container">
+<div class="container taking-course-form d-flex justify-content-center align-items-center flex-column">
+  <h1><%= @taking_course.course.name.downcase %></h1>
+  <h2 class="mb-4">for <%= @taking_course.course.language.name.downcase %></h2>
   <%= simple_form_for(@taking_course) do |f| %>
-    <%= f.input :completed, label: 'Is this course completed?', as: :radio_buttons, collection: [true, false] %>
-    <%= f.submit %>
+    <%= f.input :completed, label: 'Is this course completed?', as: :radio_buttons, collection: [['yes', 'true'], ['not yet', 'false']] %>
+    <%= f.button :submit, class:"btn btn-dark taking-course-btn", id: 'submit-taking-course' %>
   <% end %>
+  <%= link_to 'Cancel', language_path(@taking_course.course.language), class: 'btn btn-warning taking-course-btn mt-3' %>
 </div>
