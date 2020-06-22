@@ -9,3 +9,14 @@ h1 {
     font-size: 20px;
   }
 }
+
+.half-highlight {
+  background: linear-gradient(to top, $nude 50%, transparent 50%);
+}
+
+.player-name {
+  display: flex;
+  & img {
+    margin-right: 16px;
+  }
+}

@@ -1,4 +1,4 @@
-<div class="curriculum">
+<div class="curriculum shadow">
   <ul>
   <% @learning_languages.each do |learning_language| %>
     <% courses_completed = learning_language.user.taking_courses.select do |taking_course| %>
@@ -6,11 +6,11 @@
     <% end %>
 
     <% if courses_completed.length == learning_language.language.courses.length %>
-      <li><span class="completed-green"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %></span></li>
+      <li><i class="far fa-check-square"></i><span class="completed-green"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %></span></li>
     <% elsif courses_completed.length.between?(1, (learning_language.language.courses.length - 1))%>
-      <li><span class="completed-orange"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %></span></li>
+      <li><i class="far fa-square"></i><span class="completed-orange"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %></span></li>
     <% else  %>
-      <li><span class="not-completed"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %><span></li>
+      <li><i class="far fa-square"></i><span class="not-completed"><%= link_to learning_language.language.name.downcase, language_path(learning_language.language) %><span></li>
     <% end %>
   <% end %>
   </ul>

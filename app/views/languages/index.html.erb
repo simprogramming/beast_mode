@@ -1,12 +1,19 @@
 <div class="container">
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()" class="btn btn-dark">
+  </form>
+
   <h1 style="text-align:center">learn new languages</h1>
   <h2 style="text-align:center">to upscale the coding beast in you</h2>
 
   <p style="text-align:center">browse all the available languages:</p>
   <div class="d-flex justify-content-around align-items-center">
-    <%= render 'shared/curriculum'%>
-    <div>
-      <h1 style="text-align:right"><< please pick <br>a language</h1>
-    </div>
+    <ul>
+    <% @languages.each do |language|%>
+      <li><%= link_to language.name, language_path(language) %></li>
+    <% end %>
+    <ul>
+    <%= link_to 'Add a new language to beast mode', new_language_path, class:'btn btn-dark my-3' %><br>
+    <%= link_to 'Add a new language to your library', new_learning_language_path, class:'btn btn-dark' %>
   </div>
 </div>

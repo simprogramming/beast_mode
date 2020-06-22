@@ -1,16 +1,16 @@
-<div class="curriculum">
+<div class="curriculum shadow">
   <ul>
-  <% @learning_languages.each do |learning_language| %>
+  <% @other_user_learn_lang.each do |learning_language| %>
     <% courses_completed = learning_language.user.taking_courses.select do |taking_course| %>
       <% taking_course.completed == true && taking_course.course.language == learning_language.language %>
     <% end %>
 
     <% if courses_completed.length == learning_language.language.courses.length%>
-      <li><span class="completed-green"><%= learning_language.language.name.downcase %></span></li>
+      <li><i class="far fa-check-square"></i><span class="completed-green"><%= learning_language.language.name.downcase %></span></li>
     <% elsif courses_completed.length.between?(1, learning_language.language.courses.length - 1)%>
-      <li><span class="completed-orange"><%= learning_language.language.name.downcase %></span></li>
+      <li><i class="far fa-square"></i><span class="completed-orange"><%= learning_language.language.name.downcase %></span></li>
     <% else  %>
-      <li><span class="not-completed"><%= learning_language.language.name.downcase %><span></li>
+      <li><i class="far fa-square"></i><span class="not-completed"><%= learning_language.language.name.downcase %><span></li>
     <% end %>
   <% end %>
   </ul>
