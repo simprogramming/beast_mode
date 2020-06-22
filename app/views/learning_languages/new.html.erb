@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="half-highlight">Add a new language to your library</h1>
+  <h2 class="mb-5">Want to add more languages to your own library? Just pick a language below and it will be automatically added to your library! </h2>
+
+  <%= simple_form_for(@learning_language) do |f| %>
+    <%= f.input :language, collection: @languages_names, label: "Please pick a language" %>
+    <%= f.button :submit, class:'btn btn-dark' %>
+  <% end %>
+</div>
