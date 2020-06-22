@@ -6,8 +6,8 @@ Language.destroy_all
 User.destroy_all
 
 puts "Creating users"
-steph = User.create!(username: "steph", email: "steph@email.com", password: "123456")
-sim = User.create!(username: "sim", email: "sim@email.com", password: "123456")
+steph = User.create!(username: "steph", email: "steph@email.com", password: "123456", avatar: "https://avatars3.githubusercontent.com/u/61625854?s=460&u=571abe2a475f5ac22dc6cb262a57929a0e9f4874&v=4")
+sim = User.create!(username: "sim", email: "sim@email.com", password: "123456", avatar: "https://avatars0.githubusercontent.com/u/61063881?s=460&u=a31ffea0cf53f00c8dc1b6916e7e1f8196c8e777&v=4")
 
 puts "Creating languages"
 ruby = Language.create!(name: "Ruby")
