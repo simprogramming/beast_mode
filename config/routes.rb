@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :courses, only: [ :new, :create, :edit, :update ]
   # resources :users, only: [:show, :edit, :update]
   resources :taking_courses, only: [:edit, :update]
+  resources :learning_languages, only: [:new, :create]
 end
