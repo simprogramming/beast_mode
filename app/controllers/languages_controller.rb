@@ -3,6 +3,7 @@ class LanguagesController < ApplicationController
 
   def index
     @languages = Language.all
+    @user_learning_language = LearningLanguage.where(user: current_user)
   end
 
   def show

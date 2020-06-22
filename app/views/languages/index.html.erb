@@ -7,13 +7,23 @@
   <h2 style="text-align:center">to upscale the coding beast in you</h2>
 
   <p style="text-align:center">browse all the available languages:</p>
-  <div class="d-flex justify-content-around align-items-center">
-    <ul>
-    <% @languages.each do |language|%>
-      <li><%= link_to language.name, language_path(language) %></li>
-    <% end %>
-    <ul>
-    <%= link_to 'Add a new language to beast mode', new_language_path, class:'btn btn-dark my-3' %><br>
-    <%= link_to 'Add a new language to your library', new_learning_language_path, class:'btn btn-dark' %>
+  <div class="d-flex justify-content-around align-items-center flex-column">
+    <div class="container language-cards">
+      <div class="row d-flex justify-content-center align-items-center">
+        <% @languages.each do |language|%>
+          <% if @user_learning_language.find_by(language: language) == nil %>
+              <div class="col-sm-12 col-md-3 language-card shadow d-flex justify-content-center align-items-center">
+                <%= link_to language.name, language_path(language) %>
+                <%= link_to '+', new_learning_language_path, id: 'lang-btn' %>
+              </div>
+          <% else %>
+            <div class="col-sm-12 col-md-3 language-card shadow d-flex justify-content-center align-items-center">
+              <%= link_to language.name, language_path(language) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to 'Add a new language to Beast mode', new_language_path, class:'btn btn-dark my-3' %><br>
   </div>
 </div>

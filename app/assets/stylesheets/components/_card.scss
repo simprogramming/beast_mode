@@ -1,0 +1,33 @@
+.language-card {
+  width: 200px;
+  height: 100px;
+  margin: 12px;
+  transition: 0.3s;
+  & a {
+    font-weight: bolder;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// .language-to-add-card {
+//   // display: flex;
+//   // justify-content: center;
+//   // align-items: center;
+//   // flex-direction: column;
+//   // width: 200px;
+//   margin: 12px;
+// }
+
+// .language-card-bottom {
+//   margin-top: -12px;
+//   background-color: rgb(230, 162, 162);
+//   text-align: center;
+//   & p {
+//     margin: 0;
+//   }
+//   & a:hover {
+//     text-decoration: none;
+//   }
+// }

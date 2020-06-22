@@ -1,10 +1,6 @@
 class TakingCoursesController < ApplicationController
   before_action :find_taking_course, only: [:edit, :update]
 
-  def new
-    @taking_course = TakingCourse.new
-  end
-
   def create
     # raise
     @taking_course = TakingCourse.new

@@ -2,12 +2,11 @@ class CoursesController < ApplicationController
   before_action :find_course, only: [:edit, :update]
 
   def new
-  @course = Course.new
-  @languages_names = Language.all.map { |language| language.name }
+    @course = Course.new
+    @languages_names = Language.all.map { |language| language.name }
   end
 
   def create
-    # raise
     language = Language.find_by(name: params[:course][:language])
     @course = Course.new(name: params[:course][:name], link: params[:course][:link], language: language)
     
