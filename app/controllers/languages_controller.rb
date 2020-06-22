@@ -2,7 +2,8 @@ class LanguagesController < ApplicationController
   before_action :find_language, only: [:show, :edit, :update]
 
   def index
-    @learning_languages = current_user.learning_languages
+    @languages = Language.all
+    # @learning_languages = current_user.learning_languages
   end
 
   def show

@@ -6,11 +6,11 @@
     <% end %>
 
     <% if courses_completed.length == learning_language.language.courses.length%>
-      <li><i class="far fa-check-square"></i><span class="completed-green"><%= learning_language.language.name.downcase %></span></li>
+      <li><i class="far fa-check-square"></i><span class="completed-green"><%= link_to learning_language.language.name.downcase, learning_language.language %></span></li>
     <% elsif courses_completed.length.between?(1, learning_language.language.courses.length - 1)%>
-      <li><i class="far fa-square"></i><span class="completed-orange"><%= learning_language.language.name.downcase %></span></li>
+      <li><i class="far fa-square"></i><span class="completed-orange"><%= link_to learning_language.language.name.downcase, learning_language.language %></span></li>
     <% else  %>
-      <li><i class="far fa-square"></i><span class="not-completed"><%= learning_language.language.name.downcase %><span></li>
+      <li><i class="far fa-square"></i><span class="not-completed"><%= link_to learning_language.language.name.downcase, learning_language.language %><span></li>
     <% end %>
   <% end %>
   </ul>
