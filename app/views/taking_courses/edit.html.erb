@@ -1,3 +1,7 @@
+<form>
+  <input type="button" value="Go back!" onclick="history.back()" class="btn btn-dark">
+</form>
+
 <div class="container taking-course-form d-flex justify-content-center align-items-center flex-column">
   <h1 class="half-highlight"><%= @taking_course.course.name.downcase %></h1>
   <h2 class="mb-4">(for <%= @taking_course.course.language.name.downcase %>)</h2>
