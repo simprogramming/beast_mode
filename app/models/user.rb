@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :taking_courses
 
   validates :username, presence: true
-
 end
