@@ -1,3 +1,28 @@
 <div class="container">
-  <%= image_tag @user.avatar, class:'avatar avatar-big shadow' %>
+  <div class="d-flex justify-content-between align-items-center profile-top">
+    <div class='d-flex align-items-center'>
+      <%= image_tag @user.avatar, class:'avatar avatar-big shadow' %>
+      <h1><%= @user.username %></h1>
+    </div>
+    <div>
+      <%= link_to 'Edit my profile', edit_user_path(@user), class:'btn btn-dark' %>
+    </div>
+  </div>
+
+  <div class="d-flex mt-5 flex-column">
+    <h2>my languages</h2>
+    <ul class="mt-4">
+      <% @languages.each do |learning_language| %>
+        <li><%= link_to learning_language.language.name, language_path(learning_language.language) %></li>
+          <ul>
+            <% @courses.each do |taking_course| %>
+              <% if taking_course.course.language == learning_language.language %>
+                <li><%= link_to taking_course.course.name, taking_course.course.link %></li>
+              <% end %>
+            <% end %>
+          </ul>
+      <% end %>
+    </ul>
+  </div>
+
 </div>
