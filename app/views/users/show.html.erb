@@ -75,7 +75,13 @@
                   <td class="cell-title"><p><strong>Currently learning</strong></td>
                 </tr>
                 <tr>
-                  <td><p>Python</p></td>
+                  <% if @currently_learning_languages.length != 0 %>
+                    <% @currently_learning_languages.each do |learning_language| %>
+                      <td><p><%= learning_language.language.name%></p></td>
+                    <% end %>
+                  <% else %>
+                    <td><p>Nothing here yet :(</p></td>
+                  <% end %>
                 </tr>
               </table>
             </div>
@@ -86,7 +92,13 @@
                   <td class="cell-title"><p><strong>Currently taking</strong></td>
                 </tr>
                 <tr>
-                  <td><p>Learn Python</p></td>
+                  <% if @currently_taking_courses.length != 0 %>
+                    <% @currently_taking_courses.each do |taking_course| %>
+                      <td><p><%= taking_course.course.name%></p></td>
+                    <% end %>
+                  <% else %>
+                      <td><p>Nothing here yet :(</p></td>
+                  <% end %>
                 </tr>
               </table>
             </div>
