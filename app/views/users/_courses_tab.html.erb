@@ -1,0 +1,12 @@
+<div class="d-flex mt-5 flex-column">
+  <% if @user == current_user %>
+    <h2>my courses</h2>
+  <% else %>
+    <h2><%= @user.username.capitalize %>'s courses</h2>
+  <% end %>
+  <ul>
+    <% @courses.each do |taking_course| %>
+        <li><%= taking_course.course.language.name %> - <%= link_to taking_course.course.name, taking_course.course.link %></li>
+    <% end %>
+  </ul>
+</div>

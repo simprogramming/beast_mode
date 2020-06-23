@@ -1,0 +1,12 @@
+<div class="d-flex mt-5 flex-column">
+  <% if @user == current_user %>
+    <h2>my languages</h2>
+  <% else %>
+    <h2><%= @user.username.capitalize %>'s languages</h2>
+  <% end %>
+  <ul class="mt-4">
+    <% @languages.each do |learning_language| %>
+      <li><%= link_to learning_language.language.name, language_path(learning_language.language) %></li>
+    <% end %>
+  </ul>
+</div>

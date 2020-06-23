@@ -16,6 +16,7 @@ h1 {
 
 .player-name {
   display: flex;
+  align-items: center;
   & img {
     margin-right: 16px;
   }

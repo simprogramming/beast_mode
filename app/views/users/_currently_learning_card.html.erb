@@ -1,0 +1,16 @@
+<table class="shadow currently-learning">
+  <tr>
+    <td class="cell-title"><p><strong>Currently learning</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <% if @currently_learning_languages.length != 0 %>
+        <% @currently_learning_languages.each do |learning_language| %>
+          <p><%= learning_language.language.name%></p>
+        <% end %>
+      <% else %>
+        <p>Nothing here yet :(</p>
+      <% end %>
+    </td>
+  </tr>
+</table>

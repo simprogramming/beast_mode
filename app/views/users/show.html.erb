@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center profile-top">
+    <div class='d-flex align-items-center'>
+      <%= image_tag @user.avatar, class:'avatar avatar-big shadow' %>
+      <h1 class='half-highlight'><%= @user.username %></h1>
+    </div>
+    <% if @user == current_user %>
+      <div>
+        <%= link_to 'Edit my profile', edit_user_path(@user), class:'btn btn-dark' %>
+      </div>
+    <% end %>
+  </div>
+
+  <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile info</a>
+    </li>
+    <li class="nav-item">
+      <% if @user == current_user %>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My languages</a>
+      <% else %>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><%= @user.username.capitalize %>'s languages</a>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <% if @user == current_user %>
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My courses</a>
+      <% else %>
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><%= @user.username.capitalize %>'s courses</a>
+      <% end %>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="d-flex mt-5 flex-column">
+        <% if @user == current_user %>
+          <h2>my profile info</h2>
+        <% else %>
+          <h2><%= @user.username.capitalize %>'s profile info</h2>
+        <% end %>
+
+        <div class="container d-flex justify-content-around align-items-center mt-2 mb-5">
+          <div class=row>
+            <div class="col-sm-12 col-md-6">
+              <table class="shadow general-info">
+                <tr>
+                  <td class="cell-title" colspan="2"><p><strong>General info</strong></td>
+                </tr>
+                <tr>
+                  <td><p><strong>Username:</strong></td>
+                  <td><%= @user.username %></p></td>
+                </tr>
+                <tr>
+                  <td><p><strong>Birthday:</strong></td>
+                  <% if @user.birthday == nil %>
+                    <td><p>Nothing here yet :(</p></td>
+                  <% else %>
+                    <td><p><%= @user.birthday.strftime("%B %-d") %></p></td>
+                  <% end %>
+                </tr>
+                <tr>
+                  <td><p><strong>About:</strong></td>
+                  <% if @user.about == nil %>
+                    <td><p>Nothing here yet :(</p></td>
+                  <% else %>
+                    <td><p><%= @user.about %></p></td>
+                  <% end %>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <%= render 'currently_learning_card'%>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <%= render 'currently_taking_card'%>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <table class="shadow currently-learning">
+                <tr>
+                  <td class="cell-title"><p><strong>My spirit animal</strong></td>
+                </tr>
+                <tr>
+                  <td><p><%= image_tag @user.spirit_animal %></p></td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%= render 'languages_tab'%>
+    </div>
+
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <%= render 'courses_tab'%>
+    </div>
+  </div>
+
+</div>

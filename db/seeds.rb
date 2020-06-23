@@ -5,9 +5,11 @@ Course.destroy_all
 Language.destroy_all
 User.destroy_all
 
+spirit_animals = ["https://image.flaticon.com/icons/png/512/1864/1864514.png", "https://image.flaticon.com/icons/svg/1864/1864482.svg", "https://image.flaticon.com/icons/svg/1864/1864481.svg", "https://image.flaticon.com/icons/svg/1864/1864521.svg", "https://image.flaticon.com/icons/svg/1864/1864475.svg", "https://image.flaticon.com/icons/svg/1864/1864508.svg", "https://image.flaticon.com/icons/svg/1864/1864527.svg", "https://image.flaticon.com/icons/svg/1864/1864488.svg"]
+
 puts "Creating users"
-steph = User.create!(username: "steph", email: "steph@email.com", password: "123456", avatar: "https://avatars3.githubusercontent.com/u/61625854?s=460&u=571abe2a475f5ac22dc6cb262a57929a0e9f4874&v=4")
-sim = User.create!(username: "sim", email: "sim@email.com", password: "123456", avatar: "https://avatars0.githubusercontent.com/u/61063881?s=460&u=a31ffea0cf53f00c8dc1b6916e7e1f8196c8e777&v=4")
+steph = User.create!(username: "steph", email: "steph@email.com", password: "123456", avatar: "https://avatars3.githubusercontent.com/u/61625854?s=460&u=571abe2a475f5ac22dc6cb262a57929a0e9f4874&v=4", about: "Hi! I'm Steph, and I love everything tech!", birthday: Date.strptime("10/02/1996", "%m/%d/%Y"), spirit_animal: spirit_animals.sample)
+sim = User.create!(username: "sim", email: "sim@email.com", password: "123456", avatar: "https://avatars0.githubusercontent.com/u/61063881?s=460&u=a31ffea0cf53f00c8dc1b6916e7e1f8196c8e777&v=4", about: "Hi! I'm Sim, and I love trading and coding and I would love to be able to cram my brain with coding notions as fast as possible. If someone has a solution, DM me!", birthday: Date.strptime("03/06/1995", "%m/%d/%Y"), spirit_animal: spirit_animals.sample)
 
 puts "Creating languages"
 ruby = Language.create!(name: "Ruby")

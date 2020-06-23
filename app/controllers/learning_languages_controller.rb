@@ -1,7 +1,6 @@
 class LearningLanguagesController < ApplicationController
   def new
     @learning_language = LearningLanguage.new
-    # session[:return_to] ||= request.referer
     @languages_names = Language.all.map { |language| language.name }
   end
 

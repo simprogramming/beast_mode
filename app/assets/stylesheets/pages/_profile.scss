@@ -1,0 +1,25 @@
+.profile-top {
+  & h1 {
+    margin-left: 16px;
+  }
+}
+
+.cell-title {
+  padding-bottom: 2px;
+  p {
+  background-color: $nude;
+  text-align: center;  
+  }
+}
+
+.currently-learning {
+  & p {
+    text-align: center;
+  }
+
+  & img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+}
