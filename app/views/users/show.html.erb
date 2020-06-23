@@ -2,27 +2,110 @@
   <div class="d-flex justify-content-between align-items-center profile-top">
     <div class='d-flex align-items-center'>
       <%= image_tag @user.avatar, class:'avatar avatar-big shadow' %>
-      <h1><%= @user.username %></h1>
+      <h1 class='half-highlight'><%= @user.username %></h1>
     </div>
     <div>
       <%= link_to 'Edit my profile', edit_user_path(@user), class:'btn btn-dark' %>
     </div>
   </div>
 
-  <div class="d-flex mt-5 flex-column">
-    <h2>my languages</h2>
-    <ul class="mt-4">
-      <% @languages.each do |learning_language| %>
-        <li><%= link_to learning_language.language.name, language_path(learning_language.language) %></li>
-          <ul>
-            <% @courses.each do |taking_course| %>
-              <% if taking_course.course.language == learning_language.language %>
-                <li><%= link_to taking_course.course.name, taking_course.course.link %></li>
-              <% end %>
-            <% end %>
-          </ul>
-      <% end %>
-    </ul>
+  <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile info</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My languages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My courses</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="d-flex mt-5 flex-column">
+        <h2>my profile info</h2>
+
+        <div class="container d-flex justify-content-around align-items-center mt-2">
+          <div class=row>
+            <div class="col-sm-12 col-md-6">
+              <table class="shadow general-info">
+                <tr>
+                  <td class="cell-title" colspan="2"><p><strong>General info</strong></td>
+                </tr>
+                <tr>
+                  <td><p><strong>Username:</strong></td>
+                  <td><%= @user.username %></p></td>
+                </tr>
+                <tr>
+                  <td><p><strong>Birthday:</strong></td>
+                  <td><p>None given for the moment :(</p></td>
+                </tr>
+                <tr>
+                  <td><p><strong>About:</strong></td>
+                  <td><p>None given for the moment :(</p></td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <table class="shadow currently-learning">
+                <tr>
+                  <td class="cell-title"><p><strong>Currently learning</strong></td>
+                </tr>
+                <tr>
+                  <td><p>Python</p></td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <table class="shadow currently-learning">
+                <tr>
+                  <td class="cell-title"><p><strong>Currently taking</strong></td>
+                </tr>
+                <tr>
+                  <td><p>Learn Python</p></td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <table class="shadow currently-learning">
+                <tr>
+                  <td class="cell-title"><p><strong>My spirit animal</strong></td>
+                </tr>
+                <tr>
+                  <td><p><%= image_tag "https://image.flaticon.com/icons/png/512/1864/1864514.png"%></p></td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="d-flex mt-5 flex-column">
+        <h2>my languages</h2>
+        <ul class="mt-4">
+          <% @languages.each do |learning_language| %>
+            <li><%= link_to learning_language.language.name, language_path(learning_language.language) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="d-flex mt-5 flex-column">
+        <h2>my courses</h2>
+        <ul>
+          <% @courses.each do |taking_course| %>
+              <li><%= taking_course.course.language.name %> - <%= link_to taking_course.course.name, taking_course.course.link %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 
 </div>
