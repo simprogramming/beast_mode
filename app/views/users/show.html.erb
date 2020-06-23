@@ -70,37 +70,11 @@
             </div>
 
             <div class="col-sm-12 col-md-6">
-              <table class="shadow currently-learning">
-                <tr>
-                  <td class="cell-title"><p><strong>Currently learning</strong></td>
-                </tr>
-                <tr>
-                  <% if @currently_learning_languages.length != 0 %>
-                    <% @currently_learning_languages.each do |learning_language| %>
-                      <td><p><%= learning_language.language.name%></p></td>
-                    <% end %>
-                  <% else %>
-                    <td><p>Nothing here yet :(</p></td>
-                  <% end %>
-                </tr>
-              </table>
+              <%= render 'currently_learning_card'%>
             </div>
 
             <div class="col-sm-12 col-md-6">
-              <table class="shadow currently-learning">
-                <tr>
-                  <td class="cell-title"><p><strong>Currently taking</strong></td>
-                </tr>
-                <tr>
-                  <% if @currently_taking_courses.length != 0 %>
-                    <% @currently_taking_courses.each do |taking_course| %>
-                      <td><p><%= taking_course.course.name%></p></td>
-                    <% end %>
-                  <% else %>
-                      <td><p>Nothing here yet :(</p></td>
-                  <% end %>
-                </tr>
-              </table>
+              <%= render 'currently_taking_card'%>
             </div>
 
             <div class="col-sm-12 col-md-6">
@@ -120,33 +94,11 @@
     </div>
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <div class="d-flex mt-5 flex-column">
-        <% if @user == current_user %>
-          <h2>my languages</h2>
-        <% else %>
-          <h2><%= @user.username.capitalize %>'s languages</h2>
-        <% end %>
-        <ul class="mt-4">
-          <% @languages.each do |learning_language| %>
-            <li><%= link_to learning_language.language.name, language_path(learning_language.language) %></li>
-          <% end %>
-        </ul>
-      </div>
+      <%= render 'languages_tab'%>
     </div>
 
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      <div class="d-flex mt-5 flex-column">
-        <% if @user == current_user %>
-          <h2>my courses</h2>
-        <% else %>
-          <h2><%= @user.username.capitalize %>'s courses</h2>
-        <% end %>
-        <ul>
-          <% @courses.each do |taking_course| %>
-              <li><%= taking_course.course.language.name %> - <%= link_to taking_course.course.name, taking_course.course.link %></li>
-          <% end %>
-        </ul>
-      </div>
+      <%= render 'courses_tab'%>
     </div>
   </div>
 
