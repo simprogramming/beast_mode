@@ -38,11 +38,11 @@
                 </tr>
                 <tr>
                   <td><p><strong>Birthday:</strong></td>
-                  <td><p>None given for the moment :(</p></td>
+                  <td><p><%= @user.birthday %></p></td>
                 </tr>
                 <tr>
                   <td><p><strong>About:</strong></td>
-                  <td><p>None given for the moment :(</p></td>
+                  <td><p><%= @user.about %></p></td>
                 </tr>
               </table>
             </div>
@@ -75,7 +75,7 @@
                   <td class="cell-title"><p><strong>My spirit animal</strong></td>
                 </tr>
                 <tr>
-                  <td><p><%= image_tag "https://image.flaticon.com/icons/png/512/1864/1864514.png"%></p></td>
+                  <td><p><%= image_tag @user.spirit_animal %></p></td>
                 </tr>
               </table>
             </div>

@@ -4,5 +4,5 @@ class Course < ApplicationRecord
 
   validates :language, presence: true
   validates :name, presence: true
-  validates :link, presence: true, uniqueness: true
+  # validates :link, presence: true, uniqueness: true
 end

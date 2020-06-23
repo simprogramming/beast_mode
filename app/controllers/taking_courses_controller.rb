@@ -20,7 +20,6 @@ class TakingCoursesController < ApplicationController
   end
 
   def update
-    # if @taking_course.update(params[:taking_course])
     if @taking_course.update(taking_course_params)
       flash.notice = "Course successfully updated"
       redirect_to language_path(@taking_course.course.language)
