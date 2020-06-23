@@ -3,11 +3,17 @@
   border-radius: 50%;
 }
 
-.avatar-big {
+.avatar-medium {
   width: 60px;
-  border-radius: 50%;
+  height: 60px;
 }
 
 .avatar-small {
   width: 45px;
+  height: 45px;
+}
+
+.avatar-big {
+  width: 100px;
+  height: 100px;
 }

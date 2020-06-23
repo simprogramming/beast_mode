@@ -1,38 +1,21 @@
-<!--<% if user_signed_in? %>
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">
-      <img src="<%= current_user.avatar %>%" alt="User avatar" class="avatar avatar-small shadow">
-      <small>hello, <%= current_user.username.downcase %></small>
-    </a>
-    <%= link_to "sign out", destroy_user_session_path, method: :delete %>
-    <%= link_to "versus", versus_path %>
-    <%= link_to "languages", languages_path %>
-  </div>
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
-  <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-  </script>
-<% end %>-->
-
 <div class="sidenav" style="background-color:rgb(241, 199,151);">
-  <a href="#">
+  <%# User profile link %>
+  <%= link_to user_path(current_user) do %>
       <img src="<%= current_user.avatar %>%" alt="User avatar" class="avatar avatar-small shadow">
       <small>my profile</small>
-  </a>
+  <% end %>
+
   <%= link_to "versus", versus_path %>
+
+  <%# Languages index page link %>
   <%= link_to "languages", languages_path %>
+  <%# Language show page links %>
   <div class="language-show-links">
     <% Language.all.each do |language| %>
       <%= link_to language.name.downcase, language_path(language) %>
     <% end %>
   </div>
+
+  <%# Sign out link %>
   <%= link_to "sign out", destroy_user_session_path, method: :delete, id:'sign-out' %>
 </div>
