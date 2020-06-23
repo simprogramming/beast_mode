@@ -4,9 +4,11 @@
       <%= image_tag @user.avatar, class:'avatar avatar-big shadow' %>
       <h1 class='half-highlight'><%= @user.username %></h1>
     </div>
-    <div>
-      <%= link_to 'Edit my profile', edit_user_path(@user), class:'btn btn-dark' %>
-    </div>
+    <% if @user == current_user %>
+      <div>
+        <%= link_to 'Edit my profile', edit_user_path(@user), class:'btn btn-dark' %>
+      </div>
+    <% end %>
   </div>
 
   <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
