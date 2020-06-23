@@ -1,7 +1,21 @@
-.taking-course-btn {
-  border-radius: 8px;
-}
-
 #submit-taking-course {
   margin-left: 25px;
+}
+
+#lang-btn {
+  background-color: rgb(13, 194, 13);
+  text-align: center;
+  border-radius: 50%;
+  margin-left: 12px;
+  color: white;
+  width: 25px;
+  height: 25px;
+  
+  & a {
+    text-decoration: none;
+  }
+
+  & a:hover {
+    text-decoration: none;
+  }
 }

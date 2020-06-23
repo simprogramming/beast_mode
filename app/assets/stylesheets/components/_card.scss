@@ -1,0 +1,13 @@
+.language-card {
+  width: 200px;
+  height: 100px;
+  margin: 12px;
+  transition: 0.3s;
+  & a {
+    font-weight: bolder;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem $nude !important; 
+  }
+}

@@ -1,6 +1,12 @@
-<h1>Languages#new</h1>
-<p>Find me in app/views/languages/new.html.erb</p>
+<div class="container">
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()" class="btn btn-dark">
+  </form>
+  <h1 class="half-highlight my-3">Add a new language to Beast Mode</h1>
+  
+  <%= simple_form_for(@language) do |f| %>
+    <%= f.input :name, placeholder: 'Write a coding language name...'%>
+    <%= f.button :submit, class: 'btn btn-dark' %>
+  <% end %>
 
-<form>
-  <input type="button" value="Go back!" onclick="history.back()" class="btn btn-dark">
-</form>
+</div>

@@ -3,14 +3,18 @@ class LanguagesController < ApplicationController
 
   def index
     @languages = Language.all
+
+    @user_learning_language = LearningLanguage.where(user: current_user)
+
     # @learning_languages = current_user.learning_languages
+
   end
 
   def show
-    user_courses = TakingCourse.where(user: current_user)
-    @courses = user_courses.select do |taking_course|
-      taking_course.course.language == @language
-    end
+    @courses = Course.where(language: params[:id])
+    @user_courses = TakingCourse.where(user: current_user)
+
+    @taking_course = TakingCourse.new
   end
 
   def new

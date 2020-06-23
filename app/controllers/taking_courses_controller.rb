@@ -1,6 +1,21 @@
 class TakingCoursesController < ApplicationController
   before_action :find_taking_course, only: [:edit, :update]
 
+  def create
+    # raise
+    @taking_course = TakingCourse.new
+    @taking_course.user = current_user
+    @taking_course.course = Course.find(params[:taking_course][:course])
+
+    if @taking_course.save
+      flash.notice = "Course successfully added to your library!"
+      redirect_to language_path(@taking_course.course.language)
+    else
+      flash.notice = "Something went wrong, please try again"
+      render :new
+    end
+  end
+
   def edit
   end
 

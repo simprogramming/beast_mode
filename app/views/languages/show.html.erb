@@ -9,24 +9,45 @@
 
   <table>
     <tr>
-      <th></th>
       <th>name</th>
       <th>status</th>
-      <th>update</th>
-    </tr>
-    
-    <% @courses.each_with_index do |taking_course, index| %>
-      <tr>
-      <td><strong><%= index + 1 %></strong</td>
-      <td><%= link_to taking_course.course.name, taking_course.course.link %></td>
-      <% if taking_course.completed %>
-        <td><%= image_tag "https://image.flaticon.com/icons/svg/463/463574.svg" %></td>
-        <td><%= link_to 'update', edit_taking_course_path(taking_course) %></td>
-      <% else %>
-        <td><%= image_tag 'https://image.flaticon.com/icons/svg/463/463612.svg' %></td>
-        <td><%= link_to 'update', edit_taking_course_path(taking_course) %></td>
+      <% @courses.each_with_index do |course, index| %>
+        <% if @user_courses.find_by(course: course) != nil%>
+          <th>completed</th>
+          <th></th>
+        <% else %>
+          <th></th>
+        <% end %>
       <% end %>
-      </tr>
-    <% end %>
+    </tr>
+      <% if @courses == nil %>
+        <p>No courses added yet! Want to contribute by adding one to Beast mode?</p>
+      <% else %>
+        <% @courses.each_with_index do |course, index| %>
+          <tr>
+            <td><strong><%= index + 1 %></strong</td>
+            <td><%= link_to course.name, course.link %></td>
+            <% user_taking_course = @user_courses.find_by(course: course) %>
+            <% if user_taking_course != nil %>
+              <% if user_taking_course.completed %>
+                <td><%= image_tag "https://image.flaticon.com/icons/svg/463/463574.svg" %></td>
+              <% else %>
+                <td><%= image_tag 'https://image.flaticon.com/icons/svg/463/463612.svg' %></td>
+              <% end %>
+              <td><%= link_to 'update', edit_taking_course_path(user_taking_course) %></td>
+            <% else %>
+              <td>
+                <%= course.id %>
+                <%= simple_form_for(@taking_course) do |f| %>
+                  <%= f.input :course, as: :hidden, input_html: { value: course.id }  %>
+                  <%= f.button :submit, 'Add course to library', class: 'btn btn-primary' %>
+                <% end %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
   </table>
+
+  <%= link_to "Add a new course to Beast mode", new_course_path, class: 'btn btn-dark my-4' %>
 </div>
+
