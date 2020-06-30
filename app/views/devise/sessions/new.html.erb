@@ -3,7 +3,7 @@
   <h3>Unleash the beast in you!</h3>
   <div class="container form-to-sign-in">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= f.input :email,
+        <%= f.input :username,
                     required: false,
                     autofocus: true %>
         <%= f.input :password,
