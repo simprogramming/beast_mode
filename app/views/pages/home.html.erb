@@ -1,5 +1,9 @@
-<div class="home">
+<div class="home d-flex justify-content-center align-items-center">
     <h1>BEAST MODE <br> ON</h1>
 
-    <%= link_to "sign in", new_user_session_path %>
+    <% if user_signed_in? %>
+      <%= link_to "go to versus", versus_path %>
+    <% else %>
+      <%= link_to "sign in", new_user_session_path %>
+    <% end %>
 </div>
